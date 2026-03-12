@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔗 URL <span>Shortener</span></h1>
+        <p>Paste a long URL and get a short one instantly</p>
+      </div>
+
+      <div class="input-box">
+        <input type="text" id="urlInput" placeholder="Paste your long URL here..." />
+        <button id="shortenBtn" onclick="shortenUrl()">Shorten</button>
+      </div>
+
+      <div id="error" class="error" style="display:none"></div>
+
+      <div id="result" class="result" style="display:none">
+        <div class="result-label">Original URL</div>
+        <div class="result-url" id="originalUrl"></div>
+
+        <div class="short-url-row">
+          <a id="shortUrlLink" href="" target="_blank"></a>
+          <button class="copy-btn" id="copyBtn" onclick="copyUrl()">Copy</button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-value" id="clickCount">0</div>
+            <div class="stat-label">Clicks</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="expiresIn">30</div>
+            <div class="stat-label">Days left</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="history" id="historySection" style="display:none">
+        <h2>Recent URLs</h2>
+        <div id="historyList"></div>
+      </div>
+    </div>
+   <script src="index.js"></script>
+  </body>
+</html>
