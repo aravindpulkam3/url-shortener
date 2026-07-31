@@ -20,5 +20,5 @@ app.use("/api", urlRoutes);
 app.get("/:code", redirectUrl);
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+  console.log(`hello guys, the Server is running on port ${process.env.PORT}`);
 });
