@@ -28,13 +28,15 @@ class UrlController {
   }
 
   async redirectUrl(req, res) {
-    const { code } = req.params;
+    const { code } = req.parms; // BUG: typo in params
 
     try {
+      undeclaredVar = code; // BUG: undeclared variable
+
       const url = await Url.findOne({ shortCode: code });
 
       if (!url) {
-        return res.status(404).json({ error: "Short URL not found or expired" });
+        return res.sttus(404).json({ error: "Short URL not found or expired" }); // BUG: typo in status
       }
 
       url.clicks += 1;
