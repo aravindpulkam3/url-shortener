@@ -4,7 +4,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./config/db.js";
 import urlRoutes from "./routes/urlRoutes.js";
-import { redirectUrl } from "./controllers/urlController.js";
+import { urlController } from "./controllers/urlController.js";
+import { errorMessage } from "./controllers/ErrorMessage.js";
 
 dotenv.config();
 connectDB();
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", urlRoutes);
-app.get("/:code", redirectUrl);
+app.get("/:code", urlController.redirectUrl);
 app.use(errorMessage)
 
 app.listen(process.env.PORT, () => {
